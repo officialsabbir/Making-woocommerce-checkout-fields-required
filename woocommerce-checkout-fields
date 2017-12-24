@@ -1,0 +1,18 @@
+
+
+add_filter( 'woocommerce_checkout_fields' , 'custom_wc_checkout_fields' );
+// set billing phone number,email t required or not required
+function custom_wc_checkout_fields( $fields ) {
+    $fields['shipping']['shipping_email']['required'] = true;
+    $fields['shipping']['shipping_phone']['required'] = true;
+    $fields['billing']['shipping_email']['required'] = true;
+    $fields['billing']['shipping_phone']['required'] = true;
+    
+    //if you want to remove required field, just change true to false
+    $fields['shipping']['shipping_email']['required'] = false;
+    $fields['shipping']['shipping_phone']['required'] = false;
+    $fields['billing']['shipping_email']['required'] = false;
+    $fields['billing']['shipping_phone']['required'] = false;
+    
+    return $fields;
+}
